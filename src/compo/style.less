@@ -1,21 +1,36 @@
+body {
+  background-color: #F7F7F7;
+}
+
 .panel {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background: #616467;
 }
 
 .draw-block {
   padding: 10px 0;
 }
+
+.color-option {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .draw-block:hover {
   background: #787879;
 }
+
 .draw-btn {
-  color: #fff;
+  color: #ef790c;
   font-size: 18px;
-  text-align: center;
+  text-align: left;
   line-height: 2em;
+  font-weight: 700;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .draw-btn:hover {
   color: #419adf;
@@ -62,15 +77,9 @@
   transition: transform 0.5s;
 }
 .line-width-btn div.selected {
-  transform: rotateX(180deg);
   transition: transform 0.2s;
-  background: #fff;
+  background: #ef790c;
 }
-.line-width-btn:hover div {
-  transform: rotateY(180deg);
-  transition: transform 0.5s;
-}
-
 
 .line-style-block {
   box-sizing: border-box;
@@ -85,44 +94,48 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  width: 35%;
-  height: 100%;
-  transition: transform 0.2s;
+  transition: all 100ms ease-in-out;
+  margin-bottom: 40px;
 }
-.line-style-btn:not(.selected):hover div {
-  transform: rotate(15deg);
-  transition: transform 0.5s;
-}
+
 .line-style-btn.selected {
-  transform: rotate(350deg);
-  transition: transform 0.5s;
-  
+  background: transparent;
 }
+
 .selected .line-normal {
-  background: #fff;
+  background: #ef790c;
 }
+
 .line-normal {
   height: 8px;
   background: #27292a;
 }
+
 .selected .line-dash {
-  border-bottom: 8px dashed #fff;
+  border-bottom: 8px dashed #ef790c;
 }
+
 .line-dash {
   border-bottom: 8px dashed #27292a;
 }
 
-
-.ele-block {
-  width: 100%;
-  height: 30%;
-  padding: 10px 10%;
+.element-block-wrapper {
+  width: 320px;
+  height: 100%;
+  padding: 15px;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow: hidden;
   text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0, .15);
+  margin-bottom: 20px;
 }
-.ele-block:hover {
-  background: #787979;
+
+.element-block__title {
+  color: #ef790c;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: left;
+  margin: 0 0 20px 0;
 }
 
 .player-element {
@@ -149,15 +162,27 @@
   background: #27292a;
 }
 .tool-item {
-  padding: 0 15px;
-  height: 30px;
-  line-height: 30px;
-  color: #fff;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   cursor: pointer;
+  font-family: Source Sans Pro Webfont, Helvetica Neue, Segoe UI, arial, "sans-serif";
+  font-weight: 700;
+  font-style: normal;
+  appearance: none;
+  user-select: none;
+  transition: background .18s ease-in-out 0ms, color .18s ease-in-out 0ms, border-color .18s ease-in-out 0ms;
+  background-color: #ef790c;
+  color: #fff !important;
+  border: 2px solid #ef790c;
 }
 .tool-item:hover {
   background: #57595a;
+  color: red;
 }
 
 .tool-item.disabled {
@@ -184,4 +209,34 @@
 .ok-btn:hover {
   cursor: pointer;
   background: #2a6796;
+}
+
+.controls-wrapper {
+  display: inline-block;
+  box-shadow: 0 0 5px rgba(0,0,0, .2);
+  border-radius: 26px;
+  height: 52px;
+  background-color: #ef790c;
+  width: auto;
+}
+
+.control {
+  min-width: 57px;
+  height: 100%;
+  background-color: #ef790c;
+  border: none;
+}
+
+.draw-block-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
 }
