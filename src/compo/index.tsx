@@ -464,32 +464,47 @@ export default class Tactical extends React.PureComponent
 
       <div className={styles["draw-block-wrapper"]}>
         <div className={styles["element-block-wrapper"]}>
-          <h3 className={styles["element-block__title"]}>KLEUREN</h3>
-          <div className={styles['flex']}>
+          <h3 className={styles["element-block__title"]}>LIJN TEKENEN</h3>
+          <div className={styles["group"]}>
+            <div className={styles["flex-space-between"]}>
+              <div onClick={this.onSwitchFreeDraw} className={`${styles["draw-btn"]} ${ mode === Modes.freeDrawing ? styles['checked'] : '' }`}>Free Draw</div>
+              <div onClick={this.onSwitchFreeLine} className={`${styles["draw-btn"]} ${ mode === Modes.freeLining ? styles['checked'] : '' }`}>Free Line</div>
+              <div onClick={this.startAddText} className={`${styles["draw-btn"]} ${ mode === Modes.addText ? styles['checked'] : '' }`}>Text</div>
+            </div>
+          </div>
+          <div className={styles["group"]}>
+          <h4 className={styles["element-block__sub-title"]}>KLEUR</h4>
+          <div className={styles['flex-align-center']}>
             <div onClick={this.onChangeColor.bind(this, Colors.black)} className={styles['color-option']} style={{background: Colors.black}}></div>
             <div onClick={this.onChangeColor.bind(this, Colors.red)} className={styles['color-option']} style={{background: Colors.red}}></div>
             <div onClick={this.onChangeColor.bind(this, Colors.yellow)} className={styles['color-option']} style={{background: Colors.yellow}}></div>
             <div onClick={this.onChangeColor.bind(this, Colors.blue)} className={styles['color-option']} style={{background: Colors.blue}}></div>
           </div>
-        </div>
-        <div className={styles["element-block-wrapper"]}>
-          <h3 className={styles["element-block__title"]}>LIJNEN</h3>
-          <div onClick={this.onChangeLineStyle.bind(this, LineStyle.normal)} className={`${styles['line-style-btn']} ${lineStyle == LineStyle.normal ? styles['selected'] : ''}`}><div className={styles['line-normal']}></div></div>
-          <div onClick={this.onChangeLineStyle.bind(this, LineStyle.dash)} className={`${styles['line-style-btn']} ${lineStyle == LineStyle.dash ? styles['selected'] : ''}`}><div className={styles['line-dash']}></div></div>
-        </div>
-        <div className={styles["element-block-wrapper"]}>
-          <h3 className={styles["element-block__title"]}>DIKTE</h3>
-          <div className={styles['flex']}>
-            <div onClick={this.onChangeLineWidth.bind(this, LineWidth.sm)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.sm ? styles['selected'] : '' } style={{width:10, height:10}}></div></div>
-            <div onClick={this.onChangeLineWidth.bind(this, LineWidth.md)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.md ? styles['selected'] : '' } style={{width:15, height:15}}></div></div>
-            <div onClick={this.onChangeLineWidth.bind(this, LineWidth.lg)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.lg ? styles['selected'] : '' } style={{width:20, height:20}}></div></div>
+          </div>
+          <div className={styles["group"]}>
+            <h4 className={styles["element-block__sub-title"]}>DIKTE</h4>
+            <div className={styles['flex-align-center']}>
+              <div onClick={this.onChangeLineWidth.bind(this, LineWidth.sm)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.sm ? styles['selected'] : '' } style={{width:10, height:10}}></div></div>
+              <div onClick={this.onChangeLineWidth.bind(this, LineWidth.md)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.md ? styles['selected'] : '' } style={{width:15, height:15}}></div></div>
+              <div onClick={this.onChangeLineWidth.bind(this, LineWidth.lg)} className={styles['line-width-btn']}><div className={ lineWidth == LineWidth.lg ? styles['selected'] : '' } style={{width:20, height:20}}></div></div>
+            </div>
+          </div>
+          <div className={styles["group"]}>
+            <h4 className={styles["element-block__sub-title"]}>LIJN SOORT</h4>
+            <div onClick={this.onChangeLineStyle.bind(this, LineStyle.normal)} className={`${styles['line-style-btn']} ${lineStyle == LineStyle.normal ? styles['selected'] : ''}`}><div className={styles['line-normal']}></div></div>
+            <div onClick={this.onChangeLineStyle.bind(this, LineStyle.dash)} className={`${styles['line-style-btn']} ${lineStyle == LineStyle.dash ? styles['selected'] : ''}`}><div className={styles['line-dash']}></div></div>
           </div>
         </div>
         <div className={styles["element-block-wrapper"]}>
-          <h3 className={styles["element-block__title"]}>OVERIG</h3>
-          <div onClick={this.onSwitchFreeDraw} className={`${styles["draw-btn"]} ${ mode === Modes.freeDrawing ? styles['checked'] : '' }`}>Free Draw</div>
-          <div onClick={this.onSwitchFreeLine} className={`${styles["draw-btn"]} ${ mode === Modes.freeLining ? styles['checked'] : '' }`}>Free Line</div>
-          <div onClick={this.startAddText} className={`${styles["draw-btn"]} ${ mode === Modes.addText ? styles['checked'] : '' }`}>Text</div>
+          <h3 className={styles["element-block__title"]}>LIJNEN</h3>
+            <div className={styles["element-block-aside"]}>
+              <this.ImgElement src="./imgs/yellow3.png" />
+              <this.ImgElement src="./imgs/yellow4.png" />
+              <this.ImgElement src="./imgs/yellow5.png" />
+              <this.ImgElement src="./imgs/yellow6.png" />
+              <this.ImgElement src="./imgs/blue1.png" />
+              <this.ImgElement src="./imgs/blue2.png" />
+            </div>
         </div>
       </div>
 
@@ -532,16 +547,6 @@ export default class Tactical extends React.PureComponent
             <this.ImgElement src="./imgs/red6.png" />
             <this.ImgElement src="./imgs/yellow1.png" />
             <this.ImgElement src="./imgs/yellow2.png" />
-            <this.ImgElement src="./imgs/yellow3.png" />
-            <this.ImgElement src="./imgs/yellow4.png" />
-            <this.ImgElement src="./imgs/yellow5.png" />
-            <this.ImgElement src="./imgs/yellow6.png" />
-            <this.ImgElement src="./imgs/blue1.png" />
-            <this.ImgElement src="./imgs/blue2.png" />
-            <this.ImgElement src="./imgs/blue3.png" />
-            <this.ImgElement src="./imgs/blue4.png" />
-            <this.ImgElement src="./imgs/blue5.png" />
-            <this.ImgElement src="./imgs/blue6.png" />
           </div>
         </div>
         <div className={styles["element-block-wrapper"]}>
@@ -552,15 +557,10 @@ export default class Tactical extends React.PureComponent
             <this.ImgElement src="./imgs/opponent.png" />
             <this.ImgElement src="./imgs/obstacle.png" />
             <this.ImgElement src="./imgs/goal1.png" />
-            <this.ImgElement src="./imgs/goal2.png" />
             <this.ImgElement src="./imgs/goal3.png" />
-            <this.ImgElement src="./imgs/flag.png" />
-            <this.ImgElement src="./imgs/coordination_ladder2.png" />
             <this.ImgElement src="./imgs/cone_red_big.png" />
             <this.ImgElement src="./imgs/cone_blue_big.png" />
-            <this.ImgElement src="./imgs/cone_yellow_big.png" />
             <this.ImgElement src="./imgs/cone_grey_big.png" />
-            <this.ImgElement src="./imgs/cross.png" />
           </div>
         </div>
       </div>
